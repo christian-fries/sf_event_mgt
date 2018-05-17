@@ -32,7 +32,7 @@ call_user_func(function () {
             'tx_sfeventmgt_m1',
             '',
             [
-                'Administration' => 'list, export, handleExpiredRegistrations, indexNotify, notify, settingsError',
+                'Administration' => 'list, detail, export, handleExpiredRegistrations, indexNotify, notify, settingsError',
             ],
             [
                 'access' => 'user,group',

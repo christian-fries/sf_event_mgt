@@ -178,6 +178,20 @@ class AdministrationController extends AbstractController
     }
 
     /**
+     * The detail action
+     *
+     * @param \DERHANSEN\SfEventMgt\Domain\Model\Event $event Event
+     *
+     * @return void
+     */
+    public function detailAction(Event $event)
+    {
+        $variables['event'] = $event;
+        $variables['registrations'] = $this->registrationRepository->findByEvent($event);
+        $this->view->assignMultiple($variables);
+    }
+
+    /**
      * Returns, if the user has write access to temp folder and if not, adds a flash message if configured
      *
      * @return bool

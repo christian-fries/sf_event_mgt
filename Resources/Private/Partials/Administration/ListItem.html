@@ -1,12 +1,13 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
       xmlns:e="http://typo3.org/ns/DERHANSEN/SfEventMgt/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
 <tr class="db_list_normal">
     <td class="title">
-        <a href="{e:Be.EditRecord(uid:event.uid)}" title="UID: {event.uid}">
+        <f:link.action action="detail" arguments="{event: event}" title="UID: {event.uid}">
             {event.title}
-        </a>
+        </f:link.action>
     </td>
     <td class="startdate">
         <f:format.date format="%d.%m.%Y - %H:%M">{event.startdate}</f:format.date>
@@ -17,8 +18,11 @@
     <td class="registrationenabled">
         <f:if condition="{event.enableRegistration} == 1">
             <f:then>
-                <span class="t3-icon sf-event-mgt-admin-reg-enabled">&nbsp;</span>
+                <core:icon identifier="actions-check" size="small" />
             </f:then>
+            <f:else>
+                <core:icon identifier="actions-close" size="small" />
+            </f:else>
         </f:if>
     </td>
     <td class="maxparticipants">
@@ -35,9 +39,14 @@
         {event.registration->f:count()}
     </td>
     <td>
+        <a href="{e:Be.EditRecord(uid:event.uid)}" title="{f:translate(key:'LLL:EXT:sf_event_mgt/Resources/Private/Language/locallang_be.xlf:administration.edit')}">
+            <core:icon identifier="actions-open" size="small" />
+        </a>
+    </td>
+    <td>
         <f:if condition="{event.enableRegistration}">
             <f:link.action action="indexNotify" arguments="{event: '{event}'}" title="{f:translate(key:'LLL:EXT:sf_event_mgt/Resources/Private/Language/locallang_be.xlf:administration.notify')}">
-                <span class="t3-icon sf-event-mgt-admin-notify">&nbsp;</span>
+                <core:icon identifier="actions-localize" size="small" />
             </f:link.action>
         </f:if>
     </td>
@@ -45,7 +54,7 @@
         <f:if condition="{event.enableRegistration}">
             <f:if condition="{csvExportPossible}">
                 <f:link.action action="export" arguments="{eventUid: '{event.uid}'}" title="{f:translate(key:'LLL:EXT:sf_event_mgt/Resources/Private/Language/locallang_be.xlf:administration.export')}">
-                    <span class="t3-icon sf-event-mgt-admin-csv">&nbsp;</span>
+                    <core:icon identifier="actions-document-export-csv" size="small" />
                 </f:link.action>
             </f:if>
         </f:if>

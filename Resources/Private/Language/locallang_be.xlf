@@ -228,6 +228,9 @@
 			<trans-unit id="administration.title">
 				<source>Event Administration</source>
 			</trans-unit>
+			<trans-unit id="administration.event">
+				<source>Event</source>
+			</trans-unit>
 			<trans-unit id="administration.notify">
 				<source>Notify participants</source>
 			</trans-unit>
@@ -236,6 +239,9 @@
 			</trans-unit>
 			<trans-unit id="administration.handleExpiredRegistrations">
 				<source>Hide/delete expired registrations</source>
+			</trans-unit>
+			<trans-unit id="administration.edit">
+				<source>Edit event</source>
 			</trans-unit>
 			<trans-unit id="administration.export">
 				<source>Export participants</source>
